@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 import inquirer from "inquirer";
-import generateMarkdown from "./utils/generateMarkdown";
+import generateMarkdown from "./utils/generateMarkdown.js";
 import fs from "fs";
 import { type } from "os";
 // TODO: Create an array of questions for user input
@@ -18,12 +18,12 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'What command is needed to install dependencies?',
+        message: 'What command is needed to install packages?',
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'What command is needed to run tests?',
+        message: 'How is your project used?',
     },
     {
         type: 'input',
@@ -38,7 +38,7 @@ const questions = [
     {
         type: 'input',
         name: 'features',
-        message: 'What features would you like to highlight?',
+        message: 'What features about your project would you like to highlight?',
     },
     {
         type: 'input',
