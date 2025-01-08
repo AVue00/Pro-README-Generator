@@ -1,46 +1,81 @@
 // TODO: Include packages needed for this application
 import inquirer from "inquirer";
+import generateMarkdown from "./utils/generateMarkdown";
+import fs from "fs";
+import { type } from "os";
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+    {
+        type: 'input',
+        name: 'title',
+        message: 'What is your project name?',
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Provide a brief description of your project.',
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'What command is needed to install dependencies?',
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'What command is needed to run tests?',
+    },
+    {
+        type: 'input',
+        name: 'license',
+        message: 'What license is required for your project?',
+    },
+    {
+        type: 'input',
+        name: 'badge',
+        message: 'What badge would you like to include?',
+    },
+    {
+        type: 'input',
+        name: 'features',
+        message: 'What features would you like to highlight?',
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'How could others contribute to your project?',
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'What command is needed to run tests?',
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub username?',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
+    },
+];
 
-inquirer
-    .prompt([
-        {
-            type: 'input',
-            name: 'title',
-            message: 'What is your project name?',
-        },
-        {
-            type: 'input',
-            name: 'description',
-            message: 'Provide a brief description of your project.',
-        },
-        {
-            type: 'input',
-            name: 'installation',
-            message: 'What command is needed to install dependencies?',
-        },
-        {
-            type: 'input',
-            name: 'usage',
-            message: 'What command is needed to run tests?',
-        },
-        {
-            type: 'input',
-            name: 'github',
-            message: 'What is your GitHub username?',
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: 'What is your email address?',
-        },
-    ])
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(fileName, data)
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((answers) => {
+            writeToFile("README.md", generateMarkdown(answers))
+        })
+}
 
 // Function call to initialize app
 init();
