@@ -26,14 +26,10 @@ const questions = [
         message: 'How is your project used?',
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'license',
         message: 'What license is required for your project?',
-    },
-    {
-        type: 'input',
-        name: 'badge',
-        message: 'What badge would you like to include?',
+        choices: ['Apache', 'GNU', 'IBM', 'MIT']
     },
     {
         type: 'input',
@@ -73,7 +69,7 @@ function init() {
     inquirer
         .prompt(questions)
         .then((answers) => {
-            writeToFile("README.md", generateMarkdown(answers))
+            writeToFile("README-GEN.md", generateMarkdown(answers))
         })
 }
 

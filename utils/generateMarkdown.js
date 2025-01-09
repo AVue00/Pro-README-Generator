@@ -6,13 +6,13 @@ function renderLicenseBadge(license) {
   }
 
   if (license === 'Apache') {
-    return '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+    return '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)';
   } else if (license === 'GNU') {
-    return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+    return '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
   } else if (license === 'IBM') {
-    return '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)';
+    return '![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)';
   } else if (license === 'MIT') {
-    return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+    return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
   } else {
     return '';
   }
@@ -24,11 +24,11 @@ function renderLicenseLink(license) {
   if (license === 'Apache') {
     return `[License](https://opensource.org/licenses/Apache-2.0)`;
   } else if (license === 'GNU') {
-    return `[[License](https://www.gnu.org/licenses/gpl-3.0)`;
+    return `[License](https://www.gnu.org/licenses/gpl-3.0)`;
   } else if (license === 'IBM') {
-    return `[[License](https://opensource.org/licenses/IPL-1.0)`;
+    return `[License](https://opensource.org/licenses/IPL-1.0)`;
   } else if (license === 'MIT') {
-    return `[[License](https://opensource.org/licenses/MIT)`;
+    return `[License](https://opensource.org/licenses/MIT)`;
   } else {
     return '';
   }
@@ -39,24 +39,24 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if (license === 'Apache') {
     return `
-    ## License
+  ## License
     
-    This project uses an Apache license.`;
+  This project uses an Apache license.`;
   } else if (license === 'GNU') {
     return `
-    ## License
+  ## License
     
-    This project uses an GNU license.`;
+  This project uses an GNU license.`;
   } else if (license === 'IBM') {
     return `
-    ## License
+  ## License
     
-    This project uses an IBM license.`;
+  This project uses an IBM license.`;
   } else if (license === 'MIT') {
     return `
-    ## License
+  ## License
     
-    This project uses an MIT license.`;
+  This project uses an MIT license.`;
   } else {
     return '';
   }
@@ -65,56 +65,54 @@ function renderLicenseSection(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+${renderLicenseBadge(data.license)}
 
 ## Description
 
   ${data.description}
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
+- [Questions](#questions)
 - [License](#license)
+- [Features](#features)
+- [Contribute](#contribute)
+- [Tests](#tests)
 
 ## Installation
 
-  ${data.installation}
+  Use this command to install dependencies: ${data.installation}
 
 ## Usage
 
   ${data.usage}
 
-## Credits
+## Questions
 
-GitHub Profile: ${data.github}
+Questions about the project? Reach out below!
+
+GitHub Profile: github.com/${data.github}
+
 Email Address: ${data.email}
 
-## License
+${renderLicenseSection(data.license)}
 
-  ${data.license}
+${renderLicenseLink(data.license)}
 
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-  ${data.badge}
 
 ## Features
 
   ${data.features}
 
-## How to Contribute
+## Contribute
 
   ${data.contribution}
 
 ## Tests
 
-  ${data.tests}
+  Use this command to run tests: ${data.tests}
 `;
 }
 
