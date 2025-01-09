@@ -22,6 +22,8 @@ This way all packages needed are installed to properly run this project.
 
 ## Usage
 
+Below is a link to a walkthrough video of how to use this project.
+- [Walkthrough-Video](https://drive.google.com/file/d/1rH6vBLs7USw1ib7QyBByGdLqpmZcwbgm/view?usp=sharing)
 
 Below are screenshots to help use the created project.
 
@@ -34,6 +36,8 @@ Run "node index.js" to execute program and questions will prompt.
 ![Prompt Questions](./assets/images/Prompt%20Questions%20README%20Gen.png)
 
 After answering all questions, a README will be generated based on user responses.
+
+<img src="./assets/images/Generated README 1.png" width="60%">
 
 
 ## Credits
